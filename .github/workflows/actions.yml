@@ -1,4 +1,4 @@
-name: deploy vite-press
+name: Frontend Weekly
 on:
   push:
     branches:
@@ -12,21 +12,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
-
-      - name: Node
-        uses: actions/setup-node@v3
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
           node-version: 16
-          cache: npm
       - name: Build
         run: |
           npm install yarn -g
           yarn
-          yarn docs:build
+          yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist
+          publish_dir: ./dist
           publish_branch: gh-pages
-          full_commit_message: ${{ github.event.head_commit.message }}
