@@ -1,5 +1,8 @@
 import { css } from '@emotion/react';
 import HOME_BG from '~/assets/home-bg.jpg';
+import GITHUB_ICON from '~/assets/github.svg';
+import MESSAGE_ICON from '~/assets/message.svg';
+import WECHAT_ICON from '~/assets/wechat.svg';
 function Home() {
   return (
     <div
@@ -12,16 +15,6 @@ function Home() {
         flex-direction: column;
       `}
     >
-      <nav
-        css={css`
-          display: flex;
-          justify-content: space-around;
-        `}
-      >
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-      </nav>
       <main
         css={css`
           flex: 1;
@@ -30,24 +23,61 @@ function Home() {
           justify-content: center;
         `}
       >
-        <div css={css``}>
+        <div
+          css={css`
+            color: #fff;
+            text-align: center;
+          `}
+        >
           <div>
             <h1
               css={css`
-                font-size: 72px;
+                margin: 0;
+                font-size: 4.5rem;
                 text-shadow: 1px 1px 1px #333;
-                color: #fff;
               `}
             >
               西红柿
             </h1>
-            <span>12313212</span>
-          </div>
-          <aside>
             <div>Look Homeward, Angel</div>
-            <div>wechat</div>
-            <div>github</div>
-            <div>message</div>
+            <a
+              css={css`
+                color: #666;
+                cursor: pointer;
+                font-style: italic;
+              `}
+              href='#'
+            >
+              查看文章....
+            </a>
+          </div>
+          <aside
+            css={css`
+              margin-top: 0.8rem;
+              display: flex;
+              justify-content: space-around;
+              height: 2rem;
+              > div {
+                cursor: pointer;
+                width: 2rem;
+              }
+            `}
+          >
+            <div
+              css={css`
+                background: url(${WECHAT_ICON});
+              `}
+            />
+            <div
+              css={css`
+                background: url(${GITHUB_ICON});
+              `}
+            />
+            <div
+              css={css`
+                background: url(${MESSAGE_ICON});
+              `}
+            />
           </aside>
         </div>
       </main>

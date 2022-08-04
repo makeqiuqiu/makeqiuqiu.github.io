@@ -6,6 +6,7 @@ const GlobalStyle = () => (
       html,
       body,
       #root {
+        font-size: 16px;
         box-sizing: border-box;
         margin: 0;
         padding: 0;
