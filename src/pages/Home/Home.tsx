@@ -3,6 +3,7 @@ import HOME_BG from '~/assets/home-bg.jpg';
 import GITHUB_ICON from '~/assets/github.svg';
 import MESSAGE_ICON from '~/assets/message.svg';
 import WECHAT_ICON from '~/assets/wechat.svg';
+import HOME_ICON from '~/assets/home.svg';
 function Home() {
   return (
     <div
@@ -12,80 +13,78 @@ function Home() {
         background-size: 100% 100%;
         background-repeat: no-repeat;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       `}
     >
-      <main
+      <div
         css={css`
-          flex: 1;
+          color: #fff;
+          text-align: center;
+          padding: 2.25rem;
           display: flex;
+          flex-direction: column;
           align-items: center;
-          justify-content: center;
         `}
       >
-        <div
+        <div>
+          <h1
+            css={css`
+              margin: 0;
+              font-size: 4.2rem;
+              text-shadow: 1px 1px 1px #333;
+            `}
+          >
+            西红柿
+          </h1>
+          <div
+            css={css`
+              font-size: 2rem;
+            `}
+          >
+            Look Homeward, Angel
+          </div>
+          <a
+            css={css`
+              color: #024237;
+              cursor: pointer;
+              font-style: italic;
+            `}
+            href='#'
+          >
+            查看文章....
+          </a>
+        </div>
+        <aside
           css={css`
-            color: #fff;
-            text-align: center;
+            margin-top: 0.8rem;
+            display: flex;
+            height: 2rem;
+            > div {
+              cursor: pointer;
+              width: 2rem;
+            }
+            > div:not(:last-child) {
+              margin-right: 0.8rem;
+            }
           `}
         >
           <div>
-            <h1
-              css={css`
-                margin: 0;
-                font-size: 4.5rem;
-                text-shadow: 1px 1px 1px #333;
-              `}
-            >
-              西红柿
-            </h1>
-            <div>Look Homeward, Angel</div>
-            <a
-              css={css`
-                color: #666;
-                cursor: pointer;
-                font-style: italic;
-              `}
-              href='#'
-            >
-              查看文章....
+            <img src={HOME_ICON} alt='微信' />
+          </div>
+          <div>
+            <img src={WECHAT_ICON} alt='微信' />
+          </div>
+          <div>
+            <a href='https://github.com/makeqiuqiu' target='_black'>
+              <img src={GITHUB_ICON} alt='github' />
             </a>
           </div>
-          <aside
-            css={css`
-              margin-top: 0.8rem;
-              display: flex;
-              justify-content: space-around;
-              height: 2rem;
-              > div {
-                cursor: pointer;
-                width: 2rem;
-              }
-            `}
-          >
-            <div
-              css={css`
-                background: url(${WECHAT_ICON});
-              `}
-            />
-            <div
-              css={css`
-                background: url(${GITHUB_ICON});
-              `}
-            />
-            <div
-              css={css`
-                background: url(${MESSAGE_ICON});
-              `}
-            />
-          </aside>
-        </div>
-      </main>
-      <footer>
-        <div>2nianban</div>
-        <div>github</div>
-        <div>message</div>
-      </footer>
+          <div>
+            <img src={MESSAGE_ICON} alt='留言' />
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }
